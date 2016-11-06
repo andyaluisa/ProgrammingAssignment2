@@ -1,20 +1,20 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## La función makeCacheMatrix crea un objeto espcial denominado matriz
-##que puede guardar la inversa en el cache, la cual es una matriz invertible
+## La función makeCacheMatrix crea un objeto especial denominado matriz
+##que puede guardar la inversa en el caché, la cual, es una matriz invertible
 
-makeCacheMatrix <- function(x = matrix()) {
-
-  inv <- NULL
-  set <- function(y) {
-    x <<- y
-    inv <<- NULL
+makeCacheMatrix <- function(a = matrix()) {
+  
+  inversa <- NULL
+  y <- function(n) {
+    a <<- d
+    inversa <<- NULL
   }
-  get <- function() x
-  setinv <- function(inverse) inv <<- inverse
-  getinv <- function() inv
-  list(set = set, get = get, setinv = setinv, getinv = getinv)
+  get <- function() a
+  setinv <- function(inverse) inversa <<- inverse
+  getinv <- function() inversa
+  list(y = y, get = get, setinv = setinv, getinv = getinv)
 }
 
 ## Write a short comment describing this function
@@ -23,15 +23,15 @@ makeCacheMatrix <- function(x = matrix()) {
 ## ha sido calculada y la matriz no ha cambiado entonces devuelve
 ## la inversa guardada en el cache
 
-cacheSolve <- function(x, ...) {
-      
-  inv <- x$getinv()
-  if(!is.null(inv)) {
-    message("Obteniendo el resuldato")
-    return(inv)
+cacheSolve <- function(a, ...) {
+  
+  inversa <- a$getinv()
+  if(!is.null(inversa)) {
+    print("Obteniendo el resuldato")
+    return(inversa)
   }
-  data <- x$get()
-  inv <- solve(data, ...)
-  x$setinv(inv)
-  inv
+  data <- a$get()
+  inversa <- solve(data, ...)
+  a$setinv(inversa)
+  inversa
 }
